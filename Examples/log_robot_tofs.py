@@ -53,3 +53,4 @@ if __name__ == "__main__":
         f.close()
         # Unregister from all events or the spawned threads won't get killed
         misty_robot.UnregisterAllEvents()
+        
