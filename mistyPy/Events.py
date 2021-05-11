@@ -75,7 +75,7 @@ class Event:
         self.ip = ip
         self.condition = condition
         self.debounce = _debounce
-        self.data = '{"status":"Not_Subscribed or just waiting for data"}'
+        self.data = json.loads('{"status":"Not_Subscribed or just waiting for data"}')
         self.event_name = None
         self.ws = None
         self.initial_flag = True
@@ -124,8 +124,8 @@ class Event:
 
     def unsubscribe(self):
         self.ws.send(str(self.get_unsubscribe_message()))
-        self.data = '{"status":"Not_Subscribed or just waiting for data"}'
         self.ws.close()
+        self.is_active = False
 
     def get_subscribe_message(self):
         self.event_name = str(randint(0, 10000000000))
