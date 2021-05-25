@@ -67,6 +67,11 @@ from mistyPy.Events import Events
 ```
 
 There are then two ways of interacting with the events. The first is to use a callback function for every new message returned after the successful subscribtion, the second is to reference the event object itself.
+By default all event registrations are set to trigger once then unregister. To set an event registration to constantly trigger use the `keep_alive` parameter and set it to `True`.
+
+Example: 
+
+`misty.RegisterEvent("AudioCallbackEvent", Events.VoiceRecord, callback_function=capture_speech_callback, keep_alive=True)`
 
 ### Using a callback function
 ```
