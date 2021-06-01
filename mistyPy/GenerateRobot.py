@@ -171,7 +171,7 @@ class RobotCommands:
                 print(robot_method, file=outfile, end='')
                 print("\n\n", file=outfile)
 
-        FormatFile(f"{self.path}/Robot.py", in_place=True)
+        FormatFile(f"{self.path}/RobotCommands.py", in_place=True)
 
     def parse_command_into_method(self, command: Command):
         """
