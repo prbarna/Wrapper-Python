@@ -13,15 +13,15 @@ class Events:
 
     available_events = [
         'ActuatorPosition', 'ArTagDetection', 'AudioPlayComplete',
-        'BatteryCharge', 'BumpSensor', 'CriticalStatusMessage',
-        'DriveEncoders', 'FaceRecognition', 'FaceTraining', 'HaltCommand',
-        'HazardNotification', 'IMU', 'KeyPhraseRecognized',
-        'LocomotionCommand', 'ObjectDetection', 'ObstacleMap', 'PRUMessage',
-        'RfCommMessage', 'RfCommState', 'RobotCommandMessage', 'SelfState',
-        'SerialMessage', 'SkillData', 'SkillSystemStateChange',
-        'SourceFocusConfigMessage', 'SourceTrackDataMessage',
-        'TextToSpeechComplete', 'TimeOfFlight', 'TouchSensor', 'UserSkillData',
-        'VoiceRecord', 'WorldState'
+        'BatteryCharge', 'BumpSensor', 'ChargerPoseMessage',
+        'CriticalStatusMessage', 'DriveEncoders', 'FaceRecognition',
+        'FaceTraining', 'HaltCommand', 'HazardNotification', 'IMU',
+        'KeyPhraseRecognized', 'LocomotionCommand', 'ObjectDetection',
+        'ObstacleMap', 'PRUMessage', 'RfCommMessage', 'RfCommState',
+        'RobotCommandMessage', 'SelfState', 'SerialMessage', 'SkillData',
+        'SkillSystemStateChange', 'SlamStatus', 'SourceFocusConfigMessage',
+        'SourceTrackDataMessage', 'TextToSpeechComplete', 'TimeOfFlight',
+        'TouchSensor', 'UserSkillData', 'VoiceRecord', 'WorldState'
     ]
 
     ActuatorPosition = 'ActuatorPosition'
@@ -29,6 +29,7 @@ class Events:
     AudioPlayComplete = 'AudioPlayComplete'
     BatteryCharge = 'BatteryCharge'
     BumpSensor = 'BumpSensor'
+    ChargerPoseMessage = 'ChargerPoseMessage'
     CriticalStatusMessage = 'CriticalStatusMessage'
     DriveEncoders = 'DriveEncoders'
     FaceRecognition = 'FaceRecognition'
@@ -48,6 +49,7 @@ class Events:
     SerialMessage = 'SerialMessage'
     SkillData = 'SkillData'
     SkillSystemStateChange = 'SkillSystemStateChange'
+    SlamStatus = 'SlamStatus'
     SourceFocusConfigMessage = 'SourceFocusConfigMessage'
     SourceTrackDataMessage = 'SourceTrackDataMessage'
     TextToSpeechComplete = 'TextToSpeechComplete'
@@ -75,7 +77,8 @@ class Event:
         self.ip = ip
         self.condition = condition
         self.debounce = _debounce
-        self.data = json.loads('{"status":"Not_Subscribed or just waiting for data"}')
+        self.data = json.loads(
+            '{"status":"Not_Subscribed or just waiting for data"}')
         self.event_name = None
         self.ws = None
         self.initial_flag = True
